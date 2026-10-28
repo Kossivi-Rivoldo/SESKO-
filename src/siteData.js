@@ -19,13 +19,11 @@ export const siteData = {
   },
 };
 
-export const heroSlides = [
-  {
-    image: "/images/ses1a.jpg",
-    alt: "Portrait de Mathieu SESSOU avec son appareil photo",
-    caption: "La beauté du naturel",
-  },
-];
+export const heroImage = {
+  image: "/images/ses1a.jpg",
+  alt: "Portrait de Mathieu SESSOU avec son appareil photo",
+  caption: "La beauté du naturel",
+};
 
 export const portfolioAlbums = [
   {
@@ -161,5 +159,4 @@ export const testimonials = [
     text: "Mathieu SESSOU a contribué à la couverture photographique et à la valorisation des moments forts des activités du 15 août à Savalou. Nous l'encourageons à poursuivre son engagement en photographie événementielle et à accompagner d'autres initiatives culturelles, éducatives et associatives.",
   },
 ];
-
 

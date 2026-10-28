@@ -110,30 +110,11 @@ h1 em, h2 em { font-weight: 400; color: var(--accent); }
   inset: auto 18px 17px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
   color: #11100d;
   font-size: 9px;
   letter-spacing: .6px;
   text-shadow: 0 1px 8px rgba(255, 255, 255, .5);
 }
-.hero-carousel-controls { display: flex; align-items: center; gap: 7px; }
-.hero-carousel-control {
-  display: grid;
-  width: 30px;
-  height: 30px;
-  place-items: center;
-  border: 1px solid rgba(200, 168, 91, .65);
-  border-radius: 50%;
-  color: #11100d;
-  background: rgba(242, 238, 229, .88);
-  cursor: pointer;
-  transition: background .2s, transform .2s;
-}
-.hero-carousel-control:hover:not(:disabled) { background: #e0c779; transform: scale(1.06); }
-.hero-carousel-control:disabled { opacity: .65; cursor: not-allowed; }
-.hero-carousel-control:focus-visible { outline: 2px solid #e0c779; outline-offset: 3px; }
-.hero-slide-count { min-width: 36px; text-align: center; }
 .hero-stamp { position: absolute; right: -35px; bottom: 50px; width: 87px; height: 87px; background: var(--paper); border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; color: #696356; font: 9px var(--font-ui); letter-spacing: 2px; }
 .hero-stamp .bi-stars { font-size: 18px; color: var(--accent); }
 .scroll-cue { position: absolute; bottom: 27px; left: 7.2%; display: flex; gap: 11px; align-items: center; color: #817c71; font-size: 8px; letter-spacing: 1.6px; }
@@ -661,13 +642,37 @@ body { color: #f2eee5; background: #0b0b0a; }
   .footer-legal .footer-copy { margin-left: 0; width: 100%; text-align: left; }
 }
 
-main > section,
+main > section {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+main > section + section {
+  border-top: 1px solid rgba(200, 168, 91, .16);
+}
+
 .site-footer {
   margin: 18px 22px;
   border: 1px solid rgba(200, 168, 91, .42);
   border-radius: 28px;
   box-shadow: 0 12px 36px rgba(0, 0, 0, .18);
   overflow: hidden;
+}
+
+.hero,
+.portfolio,
+.services,
+.testimonials {
+  background: linear-gradient(180deg, #0d0c0a 0%, #11100d 100%);
+}
+
+.about,
+.quote-section,
+.contact {
+  background: linear-gradient(135deg, #15130f 0%, #0e0d0b 100%);
 }
 
 .site-header {
@@ -759,7 +764,6 @@ main > section,
     padding: 42px 22px 22px;
   }
   .footer-main { padding-bottom: 34px; }
-  main > section,
   .site-footer {
     margin: 12px;
     border-radius: 21px;
@@ -1113,5 +1117,3 @@ body { font-size: 16px; }
     transition: none;
   }
 }
-
-

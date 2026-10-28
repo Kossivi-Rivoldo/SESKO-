@@ -1,18 +1,9 @@
 // Developed with ❤️ by KOSSIVI
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { heroSlides } from "../siteData.js";
+import { heroImage } from "../siteData.js";
 import Arrow from "./Arrow.jsx";
 
 function Hero() {
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-  const activeSlide = heroSlides[activeSlideIndex];
-  const changeSlide = (direction) => {
-    setActiveSlideIndex((currentIndex) =>
-      (currentIndex + direction + heroSlides.length) % heroSlides.length
-    );
-  };
-
   return (
     <section className="hero" id="accueil">
       <div className="hero-copy">
@@ -30,38 +21,14 @@ function Hero() {
           <span>Des souvenirs vrais,<br />à garder pour toujours.</span>
         </div>
       </div>
-      <div className="hero-visual" role="region" aria-roledescription="carrousel" aria-label="Photographies à la une">
+      <div className="hero-visual">
         <img
-          key={activeSlide.image}
-          src={activeSlide.image}
-          alt={activeSlide.alt}
-          fetchPriority={activeSlideIndex === 0 ? "high" : "auto"}
+          src={heroImage.image}
+          alt={heroImage.alt}
+          fetchPriority="high"
         />
         <div className="image-caption">
-          <span className="hero-image-title">{activeSlide.caption}</span>
-          <div className="hero-carousel-controls" aria-label="Navigation du carrousel">
-            <button
-              className="hero-carousel-control"
-              type="button"
-              onClick={() => changeSlide(-1)}
-              disabled={heroSlides.length < 2}
-              aria-label="Photo précédente"
-            >
-              <i className="bi bi-chevron-left" aria-hidden="true" />
-            </button>
-            <span className="hero-slide-count" aria-live="polite">
-              {String(activeSlideIndex + 1).padStart(2, "0")} / {String(heroSlides.length).padStart(2, "0")}
-            </span>
-            <button
-              className="hero-carousel-control"
-              type="button"
-              onClick={() => changeSlide(1)}
-              disabled={heroSlides.length < 2}
-              aria-label="Photo suivante"
-            >
-              <i className="bi bi-chevron-right" aria-hidden="true" />
-            </button>
-          </div>
+          <span className="hero-image-title">{heroImage.caption}</span>
         </div>
         <div className="hero-stamp" aria-hidden="true">
           <span>SESKO</span><i className="bi bi-stars" /><span>ARTS</span>
@@ -73,5 +40,4 @@ function Hero() {
 }
 
 export default Hero;
-
 
